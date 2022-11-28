@@ -125,16 +125,12 @@ namespace Sistema_simples.Controllers
         // POST: ClientesController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public async Task<IActionResult> Delete(int id, IFormCollection collection)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            var cliente = await _context.clientes.FindAsync(id);
+            _context.clientes.Remove(cliente);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
         public static bool CpfValidation(string cpf)
         {

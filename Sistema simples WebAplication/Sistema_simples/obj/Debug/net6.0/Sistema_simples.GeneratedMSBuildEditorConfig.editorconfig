@@ -9,97 +9,97 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Sistema_simples
 build_property.RootNamespace = Sistema_simples
-build_property.ProjectDir = C:\Users\vitux\source\repos\Sistema simples\Sistema_simples\
+build_property.ProjectDir = C:\Users\vitux\source\repos\Sistema simples\Sistema\Sistema simples WebAplication\Sistema_simples\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\vitux\source\repos\Sistema simples\Sistema_simples
+build_property.MSBuildProjectDirectory = C:\Users\vitux\source\repos\Sistema simples\Sistema\Sistema simples WebAplication\Sistema_simples
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/vitux/source/repos/Sistema simples/Sistema_simples/Views/Cliente/Create.cshtml]
+[C:/Users/vitux/source/repos/Sistema simples/Sistema/Sistema simples WebAplication/Sistema_simples/Views/Cliente/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vitux/source/repos/Sistema simples/Sistema_simples/Views/Cliente/Delete.cshtml]
+[C:/Users/vitux/source/repos/Sistema simples/Sistema/Sistema simples WebAplication/Sistema_simples/Views/Cliente/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vitux/source/repos/Sistema simples/Sistema_simples/Views/Cliente/Details.cshtml]
+[C:/Users/vitux/source/repos/Sistema simples/Sistema/Sistema simples WebAplication/Sistema_simples/Views/Cliente/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vitux/source/repos/Sistema simples/Sistema_simples/Views/Cliente/Edit.cshtml]
+[C:/Users/vitux/source/repos/Sistema simples/Sistema/Sistema simples WebAplication/Sistema_simples/Views/Cliente/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vitux/source/repos/Sistema simples/Sistema_simples/Views/Cliente/Index.cshtml]
+[C:/Users/vitux/source/repos/Sistema simples/Sistema/Sistema simples WebAplication/Sistema_simples/Views/Cliente/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vitux/source/repos/Sistema simples/Sistema_simples/Views/Emprestimo/Create.cshtml]
+[C:/Users/vitux/source/repos/Sistema simples/Sistema/Sistema simples WebAplication/Sistema_simples/Views/Emprestimo/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wcmVzdGltb1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vitux/source/repos/Sistema simples/Sistema_simples/Views/Emprestimo/Delete.cshtml]
+[C:/Users/vitux/source/repos/Sistema simples/Sistema/Sistema simples WebAplication/Sistema_simples/Views/Emprestimo/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wcmVzdGltb1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vitux/source/repos/Sistema simples/Sistema_simples/Views/Emprestimo/Details.cshtml]
+[C:/Users/vitux/source/repos/Sistema simples/Sistema/Sistema simples WebAplication/Sistema_simples/Views/Emprestimo/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wcmVzdGltb1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vitux/source/repos/Sistema simples/Sistema_simples/Views/Emprestimo/Edit.cshtml]
+[C:/Users/vitux/source/repos/Sistema simples/Sistema/Sistema simples WebAplication/Sistema_simples/Views/Emprestimo/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wcmVzdGltb1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vitux/source/repos/Sistema simples/Sistema_simples/Views/Emprestimo/Index.cshtml]
+[C:/Users/vitux/source/repos/Sistema simples/Sistema/Sistema simples WebAplication/Sistema_simples/Views/Emprestimo/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wcmVzdGltb1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vitux/source/repos/Sistema simples/Sistema_simples/Views/Home/Index.cshtml]
+[C:/Users/vitux/source/repos/Sistema simples/Sistema/Sistema simples WebAplication/Sistema_simples/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vitux/source/repos/Sistema simples/Sistema_simples/Views/Home/Privacy.cshtml]
+[C:/Users/vitux/source/repos/Sistema simples/Sistema/Sistema simples WebAplication/Sistema_simples/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vitux/source/repos/Sistema simples/Sistema_simples/Views/Produto/Create.cshtml]
+[C:/Users/vitux/source/repos/Sistema simples/Sistema/Sistema simples WebAplication/Sistema_simples/Views/Produto/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHV0b1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vitux/source/repos/Sistema simples/Sistema_simples/Views/Produto/Delete.cshtml]
+[C:/Users/vitux/source/repos/Sistema simples/Sistema/Sistema simples WebAplication/Sistema_simples/Views/Produto/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHV0b1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vitux/source/repos/Sistema simples/Sistema_simples/Views/Produto/Details.cshtml]
+[C:/Users/vitux/source/repos/Sistema simples/Sistema/Sistema simples WebAplication/Sistema_simples/Views/Produto/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHV0b1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vitux/source/repos/Sistema simples/Sistema_simples/Views/Produto/Edit.cshtml]
+[C:/Users/vitux/source/repos/Sistema simples/Sistema/Sistema simples WebAplication/Sistema_simples/Views/Produto/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHV0b1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vitux/source/repos/Sistema simples/Sistema_simples/Views/Produto/Index.cshtml]
+[C:/Users/vitux/source/repos/Sistema simples/Sistema/Sistema simples WebAplication/Sistema_simples/Views/Produto/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHV0b1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vitux/source/repos/Sistema simples/Sistema_simples/Views/Shared/Error.cshtml]
+[C:/Users/vitux/source/repos/Sistema simples/Sistema/Sistema simples WebAplication/Sistema_simples/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vitux/source/repos/Sistema simples/Sistema_simples/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/vitux/source/repos/Sistema simples/Sistema/Sistema simples WebAplication/Sistema_simples/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vitux/source/repos/Sistema simples/Sistema_simples/Views/_ViewImports.cshtml]
+[C:/Users/vitux/source/repos/Sistema simples/Sistema/Sistema simples WebAplication/Sistema_simples/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vitux/source/repos/Sistema simples/Sistema_simples/Views/_ViewStart.cshtml]
+[C:/Users/vitux/source/repos/Sistema simples/Sistema/Sistema simples WebAplication/Sistema_simples/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vitux/source/repos/Sistema simples/Sistema_simples/Views/Shared/_Layout.cshtml]
+[C:/Users/vitux/source/repos/Sistema simples/Sistema/Sistema simples WebAplication/Sistema_simples/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-85j7jenptz

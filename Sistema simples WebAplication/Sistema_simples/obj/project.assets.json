@@ -9850,11 +9850,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\vitux\\source\\repos\\Sistema simples\\Sistema_simples\\Sistema_simples.csproj",
+      "projectUniqueName": "C:\\Users\\vitux\\source\\repos\\Sistema simples\\Sistema\\Sistema simples WebAplication\\Sistema_simples\\Sistema_simples.csproj",
       "projectName": "Sistema_simples",
-      "projectPath": "C:\\Users\\vitux\\source\\repos\\Sistema simples\\Sistema_simples\\Sistema_simples.csproj",
+      "projectPath": "C:\\Users\\vitux\\source\\repos\\Sistema simples\\Sistema\\Sistema simples WebAplication\\Sistema_simples\\Sistema_simples.csproj",
       "packagesPath": "C:\\Users\\vitux\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\vitux\\source\\repos\\Sistema simples\\Sistema_simples\\obj\\",
+      "outputPath": "C:\\Users\\vitux\\source\\repos\\Sistema simples\\Sistema\\Sistema simples WebAplication\\Sistema_simples\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\vitux\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "G6rlF5mVLPrY7A0Lur5GOPx/O/INN1BPVfAOPxwjGSJvE3FtOdOMQuXMuBvY4ckecsgzn8ubTSBeCTc71Imi5Q==",
+  "dgSpecHash": "ulnt6jqdSbobGkwUsbXriDrGbF/zSM5UctvoFs3Jejf62hi5OS5pucvYIxDxTqBP92Ik4m6Ia23UX8a2wpQdfw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\vitux\\source\\repos\\Sistema simples\\Sistema_simples\\Sistema_simples.csproj",
+  "projectFilePath": "C:\\Users\\vitux\\source\\repos\\Sistema simples\\Sistema\\Sistema simples WebAplication\\Sistema_simples\\Sistema_simples.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vitux\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\vitux\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
