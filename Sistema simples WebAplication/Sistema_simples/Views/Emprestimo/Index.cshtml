@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Sistema_simples.Models.Emprestimo>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Cadastrar Emprestimo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                cod.Usuario
+            </th>
+            <th>
+                Cliente
+            </th>
+            <th>
+                cod.Produto
+            </th>
+            <th>
+                Quantidade
+            </th>
+            <th>
+                Dt.Emprestimo
+            </th>
+            <th>
+                Dt.Devolução
+            </th>
+            <th>
+                Status
+            </th>
+            <th>
+                Informações adicionais
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Usuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cliente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProdutoId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.quantidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.data)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.data_devolucao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.informacoes_adicionais)
+            </td>
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success">Editar</a> 
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-warning">Detalhes</a> 
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

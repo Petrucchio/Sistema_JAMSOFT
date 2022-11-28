@@ -1,0 +1,60 @@
+﻿@model Sistema_simples.Models.Emprestimo
+
+<h4>Emprestimo</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label class="control-label">Código do Usuário:</label>
+                <select asp-for="Usuario" class="form-control" asp-items="ViewBag.ClienteId"></select>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Código do Produto:</label>
+                <select asp-for="ProdutoId" class="form-control" asp-items="ViewBag.ProdutoId"></select>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Quantidade do Produto:</label>
+                <input asp-for="quantidade" class="form-control" />
+                <span asp-validation-for="quantidade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Data do Emprestimo:</label>
+                <input asp-for="data" class="form-control" />
+                <span asp-validation-for="data" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Data da Devolução:</label>
+                <input asp-for="data_devolucao" class="form-control" />
+                <span asp-validation-for="data_devolucao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Status do Emprestimo:</label>
+                <select asp-for="status" class="form-control">
+                    <option value="Na empresa">Na empresa</option>
+                    <option value="Emprestado">Emprestado</option>
+                    <option value="Devolvido">Devolvido</option>
+                </select>
+                <span asp-validation-for="status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Informações adicionais:</label>
+                <input asp-for="informacoes_adicionais" class="form-control" />
+                <span asp-validation-for="informacoes_adicionais" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Alterar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-secondary">Voltar a lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
