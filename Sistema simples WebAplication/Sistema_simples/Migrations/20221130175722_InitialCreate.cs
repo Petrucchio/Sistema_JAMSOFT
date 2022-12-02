@@ -34,6 +34,7 @@ namespace Sistema_simples.Migrations
                     Cliente = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ProdutoId = table.Column<int>(type: "int", nullable: false),
                     quantidade = table.Column<int>(type: "int", nullable: false),
+                    ultimaquantidade = table.Column<int>(type: "int", nullable: false),
                     data = table.Column<DateTime>(type: "datetime2", nullable: false),
                     data_devolucao = table.Column<DateTime>(type: "datetime2", nullable: false),
                     status = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -51,7 +52,8 @@ namespace Sistema_simples.Migrations
                     id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nome = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Observacao = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Observacao = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Quantidade = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {

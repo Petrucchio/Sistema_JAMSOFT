@@ -20,6 +20,7 @@
                 <label asp-for="Cpf" class="control-label"></label>
                 <input asp-for="Cpf" class="form-control" />
                 <span asp-validation-for="Cpf" class="text-danger"></span>
+                <span class="text-danger">@ViewData["CPF"]</span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Cadastrar" class="btn btn-primary" />

@@ -7,6 +7,7 @@
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="ultimaquantidade" />
             <div class="form-group">
                 <label class="control-label">Código do Usuário:</label>
                 <select asp-for="Usuario" class="form-control" asp-items="ViewBag.ClienteId"></select>
@@ -19,6 +20,7 @@
                 <label class="control-label">Quantidade do Produto:</label>
                 <input asp-for="quantidade" class="form-control" />
                 <span asp-validation-for="quantidade" class="text-danger"></span>
+                <span class="text-danger">@ViewData["Indisponivel"]</span>
             </div>
             <div class="form-group">
                 <label class="control-label">Data do Emprestimo:</label>

@@ -82,6 +82,9 @@ namespace Sistema_simples.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("ultimaquantidade")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.ToTable("emprestimos");
@@ -101,6 +104,9 @@ namespace Sistema_simples.Migrations
 
                     b.Property<string>("Observacao")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Quantidade")
+                        .HasColumnType("int");
 
                     b.HasKey("id");
 

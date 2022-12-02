@@ -47,6 +47,13 @@ namespace Sistema_simples.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Cliente cliente)
         {
+            cliente.Cpf = replaceCPF(cliente.Cpf);
+            if (CpfExist(cliente.Cpf))
+            {
+                ViewData["CPF"] = "O CPF informado já está cadastrado";
+                return View();
+            }
+
             if (IsValid(cliente.Cpf))
             {
                 _context.Add(cliente);
@@ -83,8 +90,13 @@ namespace Sistema_simples.Controllers
 
             if (ModelState.IsValid)
             {
-                
-                    try
+                cliente.Cpf = replaceCPF(cliente.Cpf);
+                if (CpfExist(cliente.Cpf))
+                {
+                    ViewData["CPF"] = "O CPF informado já está cadastrado";
+                    return View();
+                }
+                try
                 {
                     _context.Update(cliente);
                     await _context.SaveChangesAsync();
@@ -140,8 +152,7 @@ namespace Sistema_simples.Controllers
             string digito;
             int soma;
             int resto;
-            cpf = cpf.Trim();
-            cpf = cpf.Replace(".", "").Replace("-", "");
+            
             if (cpf.Length != 11)
                 return false;
             if (cpf == "00000000000" ||
@@ -190,6 +201,16 @@ namespace Sistema_simples.Controllers
         private bool ClienteExists(int id)
         {
             return _context.clientes.Any(e => e.Id == id);
+        }
+        private bool CpfExist(string cpf)
+        {
+            return _context.clientes.Any(e => e.Cpf == cpf);
+        }
+        private string replaceCPF(string cpf)
+        {
+            cpf = cpf.Trim();
+            cpf = cpf.Replace(".", "").Replace("-", "");
+            return cpf;
         }
 
     }

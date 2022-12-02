@@ -12,7 +12,7 @@ using Sistema_simples.Context;
 namespace Sistema_simples.Migrations
 {
     [DbContext(typeof(EmprestimoContext))]
-    [Migration("20221127164844_InitialCreate")]
+    [Migration("20221130175722_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -84,6 +84,9 @@ namespace Sistema_simples.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("ultimaquantidade")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.ToTable("emprestimos");
@@ -103,6 +106,9 @@ namespace Sistema_simples.Migrations
 
                     b.Property<string>("Observacao")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Quantidade")
+                        .HasColumnType("int");
 
                     b.HasKey("id");
 

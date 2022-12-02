@@ -47,19 +47,14 @@ namespace Sistema_simples.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Produto produto)
         {
-            
-            
+            if(produto.Quantidade > 0)
+            {
                 _context.Add(produto);
                 await _context.SaveChangesAsync();
-            
-            try
-            {
                 return RedirectToAction(nameof(Index));
+
             }
-            catch
-            {
                 return View();
-            }
         }
 
         // GET: ProdutoController/Edit/5
@@ -84,7 +79,7 @@ namespace Sistema_simples.Controllers
         {
             if (id != produto.id)
                 return NotFound();
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && produto.Quantidade > 0)
             {
                 try
                 {

@@ -10,6 +10,9 @@
                 @Html.DisplayNameFor(model => model.Nome)
             </th>
             <th>
+                Quantidade Disponivel
+            </th>
+            <th>
                 Observação
             </th>
             <th></th>
@@ -20,6 +23,9 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantidade)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Observacao)

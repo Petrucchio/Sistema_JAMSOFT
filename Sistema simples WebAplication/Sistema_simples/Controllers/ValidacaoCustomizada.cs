@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Sistema_simples.Context;
+using System.ComponentModel.DataAnnotations;
 
 namespace Sistema_simples.Controllers
 {

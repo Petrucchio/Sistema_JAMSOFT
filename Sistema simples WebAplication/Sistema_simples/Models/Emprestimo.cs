@@ -14,6 +14,7 @@ namespace Sistema_simples.Models
         [Required(ErrorMessage = "É necessário, ter uma Quantidade")]
         [ValidarQuantidade(ErrorMessage = "A quantidade não pode ser menor ou igual a zero")]
         public int quantidade { get; set; }
+        public int ultimaquantidade { get; set; }
         public DateTime data{ get; set; }
         [Required(ErrorMessage = "É necessário, ter uma data de devolução")]
         [ValidarDevolucao(ErrorMessage = "A data de devolução não pode ser menor que a data atual")]

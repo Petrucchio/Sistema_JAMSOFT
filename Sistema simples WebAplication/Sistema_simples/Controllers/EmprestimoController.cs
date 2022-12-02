@@ -53,22 +53,25 @@ namespace Sistema_simples.Controllers
             {
                 if (ProdutoExist(emprestimo.ProdutoId))
                 {
-                    if (ClienteExist(emprestimo.Usuario))
+                    if (await ProdutoDisponivel(emprestimo.ProdutoId, emprestimo))
                     {
-                        emprestimo.data = DateTime.Now;
-                        if (emprestimo.data_devolucao > emprestimo.data)
+                        if (ClienteExist(emprestimo.Usuario))
                         {
-                            var cliente = await _context.clientes.FindAsync(emprestimo.Usuario);
-                            emprestimo.Cliente = cliente.Nome;
-                            if (EmprestimoValido(emprestimo.status))
+                            if (emprestimo.data_devolucao > emprestimo.data)
                             {
-
-                                _context.Add(emprestimo);
-                                await _context.SaveChangesAsync();
-                                return RedirectToAction(nameof(Index));
+                                var cliente = await _context.clientes.FindAsync(emprestimo.Usuario);
+                                emprestimo.Cliente = cliente.Nome;
+                                if (await EmprestimoValido(emprestimo.status, emprestimo))
+                                {
+                                    emprestimo.ultimaquantidade = emprestimo.quantidade;
+                                    _context.Add(emprestimo);
+                                    await _context.SaveChangesAsync();
+                                    return RedirectToAction(nameof(Index));
+                                }
                             }
                         }
                     }
+                    ViewData["Indisponivel"] = "A quantidade do produto solicitada está indisponivel";
                 }
             }
             ViewData["ClienteId"] = new SelectList(_context.clientes, "Id", "Id");
@@ -106,30 +109,35 @@ namespace Sistema_simples.Controllers
                 {
                     if (ProdutoExist(emprestimo.ProdutoId))
                     {
-                        if (ClienteExist(emprestimo.Usuario))
+                        if (await ProdutoDisponivel(emprestimo.ProdutoId, emprestimo))
                         {
-                            if (emprestimo.data_devolucao > emprestimo.data)
+                            if (ClienteExist(emprestimo.Usuario))
                             {
-                                var cliente = await _context.clientes.FindAsync(emprestimo.Usuario);
-                                emprestimo.Cliente = cliente.Nome;
-                                if (EmprestimoValido(emprestimo.status))
+                                if (emprestimo.data_devolucao > emprestimo.data)
                                 {
-                                try
-                                {
-                                    _context.Update(emprestimo);
-                                    await _context.SaveChangesAsync();
-                                }
-                                catch (DbUpdateConcurrencyException)
-                                {
-                                    if (!EmprestimoExists(emprestimo.Id))
-                                        return NotFound();
-                                    else
-                                        throw;
-                                }
-                                return RedirectToAction(nameof(Index));
+                                    var cliente = await _context.clientes.FindAsync(emprestimo.Usuario);
+                                    emprestimo.Cliente = cliente.Nome;
+                                    if (await EmprestimoValido(emprestimo.status, emprestimo))
+                                    {
+                                        try
+                                        {
+                                            emprestimo.ultimaquantidade = emprestimo.quantidade;
+                                            _context.Update(emprestimo);
+                                            await _context.SaveChangesAsync();
+                                        }
+                                        catch (DbUpdateConcurrencyException)
+                                        {
+                                            if (!EmprestimoExists(emprestimo.Id))
+                                                return NotFound();
+                                            else
+                                                throw;
+                                        }
+                                        return RedirectToAction(nameof(Index));
+                                    }
                                 }
                             }
                         }
+                    ViewData["Indisponivel"] = "A quantidade do produto solicitada está indisponivel";
                     }
                 }
             ViewData["ClienteId"] = new SelectList(_context.clientes, "Id", "Id");
@@ -165,14 +173,30 @@ namespace Sistema_simples.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-        private bool EmprestimoValido(string emprestimo)
+        private async Task<Boolean> EmprestimoValido(string status,Emprestimo emprestimo)
         {
-            if (emprestimo == "Na empresa")
+            var produto = await _context.Produtos.FindAsync(emprestimo.ProdutoId);
+            if (status == "Na empresa")
                 return true;
-            else if (emprestimo == "Emprestado")
+            else if (status == "Emprestado")
                 return true;
-            else if (emprestimo == "Devolvido")
+            else if (status == "Devolvido")
+            {
+                    
+                    if (emprestimo.quantidade != emprestimo.ultimaquantidade)
+                    {
+                        var difereça = emprestimo.quantidade - emprestimo.ultimaquantidade;
+                        produto.Quantidade += difereça;
+                        _context.Update(produto);
+                        await _context.SaveChangesAsync();
+                        return true;
+                    }
+                    produto.Quantidade += emprestimo.quantidade;
+                    _context.Update(produto);
+                    await _context.SaveChangesAsync();
                 return true;
+            }
+                
             return false;
         }
         private bool ProdutoExist(int id)
@@ -186,6 +210,38 @@ namespace Sistema_simples.Controllers
         private bool EmprestimoExists(int id)
         {
             return _context.emprestimos.Any(e => e.Id == id);
+        }
+        private async Task<Boolean> ProdutoDisponivel(int id, Emprestimo emprestimo)
+        {
+            var produto = await _context.Produtos.FindAsync(id);
+            if (emprestimo.Id== 0)
+            {
+                
+                produto.Quantidade -= emprestimo.quantidade;
+                if (produto.Quantidade < 0)
+                {
+                    return false;
+                }
+                _context.Update(produto);
+                await _context.SaveChangesAsync();
+            }
+            else
+            {
+                if(emprestimo.quantidade != emprestimo.ultimaquantidade)
+                {
+                    var difereça = emprestimo.quantidade - emprestimo.ultimaquantidade;
+                    produto.Quantidade -= difereça;
+                    if (produto.Quantidade < 0)
+                    {
+                        return false;
+                    }
+                    _context.Update(produto);
+                    await _context.SaveChangesAsync();
+                }
+            }
+                
+            
+            return true;
         }
     }
 }
