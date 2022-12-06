@@ -26,7 +26,7 @@
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> 
-        <a asp-action="Index" class="btn btn-secondary">Voltar a lista</a>
+        <input type="submit" asp-route-usuarioId="@ViewData["id"]" value="Delete" class="btn btn-danger" />
+        <a asp-action="Index" asp-route-usuarioId="@ViewData["id"]" class="btn btn-secondary">Voltar a lista</a>
     </form>
 </div>

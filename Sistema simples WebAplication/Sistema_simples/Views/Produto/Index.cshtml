@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Sistema_simples.Models.Produto>
 
 <p>
-    <a asp-action="Create" class="btn btn-primary">Cadastrar Produto</a>
+    <a asp-action="Create" asp-route-usuarioId="@ViewData["id"]" class="btn btn-primary">Cadastrar Produto</a>
 </p>
 <table class="table">
     <thead>
@@ -31,9 +31,9 @@
                 @Html.DisplayFor(modelItem => item.Observacao)
             </td>
             <td>
-                    <a asp-action="Edit" asp-route-id="@item.id" class="btn btn-success">Editar</a> 
-                    <a asp-action="Details" asp-route-id="@item.id" class="btn btn-warning">Detalhes</a> 
-                    <a asp-action="Delete" asp-route-id="@item.id" class="btn btn-danger">Deletar</a>
+                    <a asp-action="Edit" asp-route-id="@item.id" asp-route-usuarioId="@ViewData["id"]" class="btn btn-success">Editar</a>
+                    <a asp-action="Details" asp-route-id="@item.id" asp-route-usuarioId="@ViewData["id"]" class="btn btn-warning">Detalhes</a>
+                    <a asp-action="Delete" asp-route-id="@item.id" asp-route-usuarioId="@ViewData["id"]" class="btn btn-danger">Deletar</a>
             </td>
         </tr>
 }

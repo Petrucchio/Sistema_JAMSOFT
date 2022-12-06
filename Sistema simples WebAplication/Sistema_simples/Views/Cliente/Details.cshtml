@@ -25,6 +25,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-success">Editar</a> 
-    <a asp-action="Index" class="btn btn-secondary">Voltar a lista</a>
+    <a asp-action="Edit" asp-route-id="@Model?.Id" asp-route-usuarioId="@ViewData["id"]" class="btn btn-success">Editar</a>
+    <a asp-action="Index" asp-route-usuarioId="@ViewData["id"]" class="btn btn-secondary">Voltar a lista</a>
 </div>

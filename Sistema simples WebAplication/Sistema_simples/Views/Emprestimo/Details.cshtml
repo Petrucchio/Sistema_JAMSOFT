@@ -5,16 +5,22 @@
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            cod.Usuario
+            cod.Funcionario
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Usuario)
+            @Html.DisplayFor(model => model.UsuarioId)
         </dd>
         <dt class = "col-sm-2">
-            Cliente
+            Nome do Funcionario
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Cliente)
+            @Html.DisplayFor(model => model.UsuarioNome)
+        </dd>
+        <dt class = "col-sm-2">
+            cod.Cliente
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ClienteId)
         </dd>
         <dt class = "col-sm-2">
             cod.Produto
@@ -55,6 +61,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-success">Editar</a>
-    <a asp-action="Index"class="btn btn-secondary">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model?.Id" asp-route-usuarioId="@ViewData["id"]" class="btn btn-success">Editar</a>
+    <a asp-action="Index" asp-route-usuarioId="@ViewData["id"]" class="btn btn-secondary">Back to List</a>
 </div>

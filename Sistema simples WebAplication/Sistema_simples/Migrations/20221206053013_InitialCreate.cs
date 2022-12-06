@@ -30,8 +30,9 @@ namespace Sistema_simples.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Usuario = table.Column<int>(type: "int", nullable: false),
-                    Cliente = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ClienteId = table.Column<int>(type: "int", nullable: false),
+                    UsuarioId = table.Column<int>(type: "int", nullable: false),
+                    UsuarioNome = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ProdutoId = table.Column<int>(type: "int", nullable: false),
                     quantidade = table.Column<int>(type: "int", nullable: false),
                     ultimaquantidade = table.Column<int>(type: "int", nullable: false),
@@ -59,6 +60,21 @@ namespace Sistema_simples.Migrations
                 {
                     table.PrimaryKey("PK_Produtos", x => x.id);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "Usuario",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    User = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Nome = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(18)", maxLength: 18, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Usuario", x => x.Id);
+                });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -71,6 +87,9 @@ namespace Sistema_simples.Migrations
 
             migrationBuilder.DropTable(
                 name: "Produtos");
+
+            migrationBuilder.DropTable(
+                name: "Usuario");
         }
     }
 }

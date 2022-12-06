@@ -10,7 +10,7 @@
             <input type="hidden" asp-for="ultimaquantidade" />
             <div class="form-group">
                 <label class="control-label">Código do Usuário:</label>
-                <select asp-for="Usuario" class="form-control" asp-items="ViewBag.ClienteId"></select>
+                <select asp-for="ClienteId" class="form-control" asp-items="ViewBag.ClienteId"></select>
             </div>
             <div class="form-group">
                 <label class="control-label">Código do Produto:</label>
@@ -47,14 +47,14 @@
                 <span asp-validation-for="informacoes_adicionais" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Alterar" class="btn btn-primary" />
+                <input type="submit" value="Alterar" asp-route-usuarioId="@ViewData["id"]" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index" class="btn btn-secondary">Voltar a lista</a>
+    <a asp-action="Index" asp-route-usuarioId="@ViewData["id"]" class="btn btn-secondary">Voltar a lista</a>
 </div>
 
 @section Scripts {

@@ -1,16 +1,16 @@
 ﻿@model IEnumerable<Sistema_simples.Models.Emprestimo>
 
 <p>
-    <a asp-action="Create" class="btn btn-primary">Cadastrar Emprestimo</a>
+    <a asp-action="Create" asp-route-usuarioId="@ViewData["id"]" class="btn btn-primary">Cadastrar Emprestimo</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                cod.Usuario
+                cod.Funcionario
             </th>
             <th>
-                Cliente
+                cod.Cliente
             </th>
             <th>
                 cod.Produto
@@ -39,10 +39,10 @@
             {
                 <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Usuario)
+                @Html.DisplayFor(modelItem => item.UsuarioId)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Cliente)
+                @Html.DisplayFor(modelItem => item.ClienteId)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ProdutoId)
@@ -63,9 +63,9 @@
                 @Html.DisplayFor(modelItem => item.informacoes_adicionais)
             </td>
             <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success">Editar</a> 
-                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-warning">Detalhes</a> 
-                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Deletar</a>
+                        <a asp-action="Edit" asp-route-id="@item.Id" asp-route-usuarioId="@ViewData["id"]" class="btn btn-success">Editar</a>
+                        <a asp-action="Details" asp-route-id="@item.Id" asp-route-usuarioId="@ViewData["id"]" class="btn btn-warning">Detalhes</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" asp-route-usuarioId="@ViewData["id"]" class="btn btn-danger">Deletar</a>
             </td>
         </tr>
             }

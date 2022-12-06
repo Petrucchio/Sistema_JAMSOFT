@@ -15,38 +15,65 @@ namespace Sistema_simples.Controllers
 
         }
         // GET: ClientesController
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int usuarioId,Usuario usuario1)
         {
-            return View(await _context.clientes.ToListAsync());
+            if(usuario1.Id != 0)
+            usuarioId = usuario1.Id;
+
+            if (usuarioId != 0)
+            {
+                var usuario = await _context.Usuario.FirstOrDefaultAsync(m => m.Id == usuarioId);
+                ViewData["LoginStatus"] = usuario.Nome;
+                ViewData["id"] = usuario.Id;
+                return View(await _context.clientes.ToListAsync());
+            }
+            return RedirectToAction("Login", "Usuario");
         }
 
         // GET: ClientesController/Details/5
-        public async Task<IActionResult> Details(int id)
+        public async Task<IActionResult> Details(int id, int usuarioId)
         {
-            if (id == null)
+            if (usuarioId != 0)
             {
-                return NotFound();
-            }
-            var produto = await _context.clientes.FirstOrDefaultAsync(m => m.Id == id);
-            if (produto == null)
-            {
-                return NotFound();
-            }
+                var usuario = await _context.Usuario.FirstOrDefaultAsync(m => m.Id == usuarioId);
+                ViewData["LoginStatus"] = usuario.Nome;
+                ViewData["id"] = usuario.Id;
+                if (id == null)
+                {
+                    return NotFound();
+                }
+                var cliente = await _context.clientes.FirstOrDefaultAsync(m => m.Id == id);
+                if (cliente == null)
+                {
+                    return NotFound();
+                }
 
-            return View(produto);
+                return View(cliente);
+            }
+            return RedirectToAction("Login", "Usuario");
         }
 
         // GET: ClientesController/Create
-        public ActionResult Create()
+        public async Task<IActionResult> Create(int usuarioId)
         {
-            return View();
+            if (usuarioId != 0)
+            {
+                var usuario = await _context.Usuario.FirstOrDefaultAsync(m => m.Id == usuarioId);
+                ViewData["LoginStatus"] = usuario.Nome;
+                ViewData["id"] = usuario.Id;
+                return View();
+            }
+            return RedirectToAction("Login", "Usuario");
         }
 
         // POST: ClientesController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Cliente cliente)
+        public async Task<IActionResult> Create(Cliente cliente, int usuarioId)
         {
+            var usuario = await _context.Usuario.FirstOrDefaultAsync(m => m.Id == usuarioId);
+            ViewData["LoginStatus"] = usuario.Nome;
+            ViewData["id"] = usuario.Id;
             cliente.Cpf = replaceCPF(cliente.Cpf);
             if (CpfExist(cliente.Cpf))
             {
@@ -58,46 +85,60 @@ namespace Sistema_simples.Controllers
             {
                 _context.Add(cliente);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index",usuario);
             }
                 return View();
         }
 
         // GET: ClientesController/Edit/5
-        public async Task<IActionResult> Edit(int id)
+        public async Task<IActionResult> Edit(int id, int usuarioId)
         {
-            if (id == null)
+            if (usuarioId != 0)
             {
-                return NotFound();
+                var usuario = await _context.Usuario.FirstOrDefaultAsync(m => m.Id == usuarioId);
+                ViewData["LoginStatus"] = usuario.Nome;
+                ViewData["id"] = usuario.Id;
+                if (id == null)
+                {
+                    return NotFound();
+                }
+                var cliente = await _context.clientes.FindAsync(id);
+                if (cliente == null)
+                {
+                    return NotFound();
+                }
+                return View(cliente);
             }
-            var cliente = await _context.clientes.FindAsync(id);
-            if (cliente == null)
-            {
-                return NotFound();
-            }
-            return View(cliente);
+            return RedirectToAction("Login", "Usuario");
         }
 
         // POST: ClientesController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, Cliente cliente)
+        public async Task<IActionResult> Edit(int id, Cliente cliente, int usuarioId)
         {
             if (id != cliente.Id)
             {
                 return NotFound();
             }
-
+            var usuario = await _context.Usuario.FirstOrDefaultAsync(m => m.Id == usuarioId);
+            ViewData["LoginStatus"] = usuario.Nome;
+            ViewData["id"] = usuario.Id;
             if (ModelState.IsValid)
             {
                 cliente.Cpf = replaceCPF(cliente.Cpf);
-                if (CpfExist(cliente.Cpf))
-                {
-                    ViewData["CPF"] = "O CPF informado já está cadastrado";
-                    return View();
-                }
+           
+                //if (await CpfAlterado(cliente.Cpf,cliente.Id))
+                //{
+                    //if (CpfExist(cliente.Cpf))
+                    //{
+                    //    ViewData["CPF"] = "O CPF informado já está cadastrado";
+                    //    return View();
+                    //}
+                //}
                 try
                 {
+
                     _context.Update(cliente);
                     await _context.SaveChangesAsync();
                 }
@@ -112,37 +153,47 @@ namespace Sistema_simples.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", usuario);
             }
             return View(cliente);
         }
 
         // GET: ClientesController/Delete/5
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Delete(int id, int usuarioId)
         {
-            if (id == null)
+            if (usuarioId != 0)
             {
-                return NotFound();
-            }
+                var usuario = await _context.Usuario.FirstOrDefaultAsync(m => m.Id == usuarioId);
+                ViewData["LoginStatus"] = usuario.Nome;
+                ViewData["id"] = usuario.Id;
+                if (id == null)
+                {
+                    return NotFound();
+                }
 
-            var cliente = await _context.clientes.FirstOrDefaultAsync(m => m.Id == id);
-            if (cliente == null)
-            {
-                return NotFound();
-            }
+                var cliente = await _context.clientes.FirstOrDefaultAsync(m => m.Id == id);
+                if (cliente == null)
+                {
+                    return NotFound();
+                }
 
-            return View(cliente);
+                return View(cliente);
+            }
+            return RedirectToAction("Login", "Usuario");
         }
 
         // POST: ClientesController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Delete(int id, IFormCollection collection)
+        public async Task<IActionResult> Delete(int id, IFormCollection collection, int usuarioId)
         {
+            var usuario = await _context.Usuario.FirstOrDefaultAsync(m => m.Id == usuarioId);
+            ViewData["LoginStatus"] = usuario.Nome;
+            ViewData["id"] = usuario.Id;
             var cliente = await _context.clientes.FindAsync(id);
             _context.clientes.Remove(cliente);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Index", usuario);
         }
         public static bool CpfValidation(string cpf)
         {
@@ -212,6 +263,12 @@ namespace Sistema_simples.Controllers
             cpf = cpf.Replace(".", "").Replace("-", "");
             return cpf;
         }
+        //private async Task<Boolean> CpfAlterado(string cpf,int id)
+        //{
+        // var clienteoriginal = await _context.clientes.FindAsync(id);
+        //    var cpfalterado = cpf != clienteoriginal.Cpf;
+        //    return cpfalterado;
+        //}
 
     }
 }

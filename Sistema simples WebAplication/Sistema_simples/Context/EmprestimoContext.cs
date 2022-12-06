@@ -13,6 +13,7 @@ namespace Sistema_simples.Context
         public DbSet<Cliente> clientes { get; set; }
         public DbSet<Emprestimo> emprestimos { get; set; }
         public DbSet<Produto> Produtos { get; set; }
+        public DbSet<Usuario> Usuario { get; set; }
     }
 
 }

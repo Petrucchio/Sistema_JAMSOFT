@@ -7,8 +7,9 @@ namespace Sistema_simples.Models
     {
         public int Id { get; set; }
         [Required(ErrorMessage = "É necessário, ter um cliente")]
-        public int Usuario { get; set; }
-        public string Cliente { get; set; }
+        public int ClienteId { get; set; }
+        public int UsuarioId { get; set; }
+        public string UsuarioNome { get; set; }
         [Required(ErrorMessage = "É necessário, ter um Produto")]
         public int ProdutoId { get; set; }
         [Required(ErrorMessage = "É necessário, ter uma Quantidade")]
