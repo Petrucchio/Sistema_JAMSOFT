@@ -107,6 +107,7 @@ namespace Sistema_simples.Controllers
                 {
                     return NotFound();
                 }
+                ViewData["dados"] = cliente.Cpf;
                 return View(cliente);
             }
             return RedirectToAction("Login", "Usuario");
@@ -115,7 +116,7 @@ namespace Sistema_simples.Controllers
         // POST: ClientesController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, Cliente cliente, int usuarioId)
+        public async Task<IActionResult> Edit(int id, Cliente cliente, int usuarioId, string dados)
         {
             if (id != cliente.Id)
             {
@@ -124,18 +125,21 @@ namespace Sistema_simples.Controllers
             var usuario = await _context.Usuario.FirstOrDefaultAsync(m => m.Id == usuarioId);
             ViewData["LoginStatus"] = usuario.Nome;
             ViewData["id"] = usuario.Id;
-            if (ModelState.IsValid)
-            {
+            
                 cliente.Cpf = replaceCPF(cliente.Cpf);
-           
-                //if (await CpfAlterado(cliente.Cpf,cliente.Id))
-                //{
-                    //if (CpfExist(cliente.Cpf))
-                    //{
-                    //    ViewData["CPF"] = "O CPF informado já está cadastrado";
-                    //    return View();
-                    //}
-                //}
+
+            if (IsValid(cliente.Cpf))
+            {
+
+            
+                if (dados != cliente.Cpf)
+                {
+                    if (CpfExist(cliente.Cpf))
+                    {
+                        ViewData["CPF"] = "O CPF informado já está cadastrado";
+                        return View();
+                    }
+                }
                 try
                 {
 
@@ -251,7 +255,7 @@ namespace Sistema_simples.Controllers
             string digito;
             string tempCnpj;
             cnpj = cnpj.Trim();
-            cnpj = cnpj.Replace(".", "").Replace("-", "").Replace("/", "");
+            cnpj = cnpj.Replace("/", "");
             if (cnpj.Length != 14)
                 return false;
             tempCnpj = cnpj.Substring(0, 12);
@@ -298,12 +302,6 @@ namespace Sistema_simples.Controllers
             cpf = cpf.Replace(".", "").Replace("-", "");
             return cpf;
         }
-        //private async Task<Boolean> CpfAlterado(string cpf,int id)
-        //{
-        // var clienteoriginal = await _context.clientes.FindAsync(id);
-        //    var cpfalterado = cpf != clienteoriginal.Cpf;
-        //    return cpfalterado;
-        //}
 
     }
 }
