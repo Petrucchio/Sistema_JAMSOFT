@@ -12,8 +12,8 @@ using Sistema_simples.Context;
 namespace Sistema_simples.Migrations
 {
     [DbContext(typeof(EmprestimoContext))]
-    [Migration("20221206053013_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20221206210409_emprestimo")]
+    partial class emprestimo
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -34,8 +34,8 @@ namespace Sistema_simples.Migrations
 
                     b.Property<string>("Cpf")
                         .IsRequired()
-                        .HasMaxLength(14)
-                        .HasColumnType("nvarchar(14)");
+                        .HasMaxLength(18)
+                        .HasColumnType("nvarchar(18)");
 
                     b.Property<string>("Nome")
                         .IsRequired()
